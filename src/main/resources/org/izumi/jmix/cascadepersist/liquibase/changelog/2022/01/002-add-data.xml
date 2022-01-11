@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="1" author="jmix-cascade-persist-problem">
+        <insert tableName="JMCAPE_INNER">
+            <column name="ID" value="1c9e420a2b7a4c428654a9027ee14083"/>
+            <column name="FROM_DATE" value="2022-01-01"/>
+            <column name="UNTIL_DATE" value="2023-01-03"/>
+        </insert>
+        <insert tableName="JMCAPE_INNER">
+            <column name="ID" value="2c9e420a2b7a4c428654a9027ee14083"/>
+            <column name="FROM_DATE" value="2021-05-01"/>
+            <column name="UNTIL_DATE" value="2021-06-02"/>
+        </insert>
+        <insert tableName="JMCAPE_INNER">
+            <column name="ID" value="3c9e420a2b7a4c428654a9027ee14083"/>
+            <column name="FROM_DATE" value="2021-01-01"/>
+            <column name="UNTIL_DATE" value="2021-01-02"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="2" author="jmix-cascade-persist-problem">
+        <insert tableName="JMCAPE_OUTER">
+            <column name="ID" value="1c8e420a2b7a4c428654a9027ee14083"/>
+            <column name="INNER_ID" value="1c9e420a2b7a4c428654a9027ee14083"/>
+            <column name="SOMETHING" value="First entity to check missing"/>
+        </insert>
+        <insert tableName="JMCAPE_OUTER">
+            <column name="ID" value="1c7e420a2b7a4c428654a9027ee14083"/>
+            <column name="INNER_ID" value="2c9e420a2b7a4c428654a9027ee14083"/>
+            <column name="SOMETHING" value="Second entity to check missing"/>
+        </insert>
+        <insert tableName="JMCAPE_OUTER">
+            <column name="ID" value="1c6e420a2b7a4c428654a9027ee14083"/>
+            <column name="INNER_ID" value="3c9e420a2b7a4c428654a9027ee14083"/>
+            <column name="SOMETHING" value="Third entity to check missing"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
